@@ -1,0 +1,20 @@
+{
+  "name": "adventofcode2015",
+  "version": "1.0.0",
+  "description": "Solves for puzzles of advent of code year 2015",
+  "main": "index.js",
+  "scripts": {
+    "advent2015": "node advent-of-code/2015/index.js"
+  },
+  "keywords": [
+    "AdventOfCode",
+    "2015"
+  ],
+  "author": "Julian Ciro B.",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "blueimp-md5": "^2.19.0",
+    "crypto-js": "^4.1.1"
+  }
+}
