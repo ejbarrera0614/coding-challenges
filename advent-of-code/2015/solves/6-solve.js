@@ -4,7 +4,7 @@ const formatPuzzleInput = puzzleInput.split('\n')
 
 const SIZE_GRID = 1000
 const gridLights = [...Array(SIZE_GRID)].map(() => [...Array(SIZE_GRID).fill(false)])
-const gridLightsV2 = [...Array(SIZE_GRID)].map(() => [...Array(SIZE_GRID).fill({ toggle: false, brightness: 0 })])
+const gridLightsV2 = [...Array(SIZE_GRID)].map(() => [...Array(SIZE_GRID)].map(() => ({ toggle: false, brightness: 0 })))
 
 function getInstructions(inputString) {
     const [action, startCoord, endCoord] = inputString.match(/^(turn on|turn off|toggle)|(\d+,\d+)+/g)
@@ -27,7 +27,7 @@ function toggleLightV2({ action, x1, y1, x2, y2 }) {
     for (let i = Number(x1); i <= Number(x2); i++) {
         for (let j = Number(y1); j <= Number(y2); j++) {
             // TODO: Why is error when someone don't make destructuring here?
-            const { ...light } = gridLightsV2[i][j]
+            const light = gridLightsV2[i][j]
             if (action === 'turn on') {
                 light.toggle = true
                 light.brightness += 1
@@ -40,7 +40,7 @@ function toggleLightV2({ action, x1, y1, x2, y2 }) {
                 light.toggle = !light.toggle
                 light.brightness += 2
             }
-            gridLightsV2[i][j] = light
+            // gridLightsV2[i][j] = light
         }
     }
 }
